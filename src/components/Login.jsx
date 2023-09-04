@@ -49,7 +49,7 @@ console.log(error);
           <p><Link  > <a href='#' className=" label-text-alt link link-hover">forgot password?</a></Link></p>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary ">Login</button>
         </div>
       </form>
       <p className='text-center'><Link to='/register' > <a href='#' className=" label-text-alt link link-hover">new to website? Register</a></Link></p>

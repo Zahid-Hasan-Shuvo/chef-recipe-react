@@ -10,6 +10,7 @@ const auth =getAuth(app)
 
   const AuthProviders = ({children}) => {
     const [user, setUser]=useState(null)
+    const [loading, setLoading]=useState(true)
 
 
 
@@ -29,6 +30,7 @@ const auth =getAuth(app)
     const unsubscibe=  onAuthStateChanged(auth, currentUser=>{
         console.log('auth state change', currentUser);
         setUser(currentUser)
+        setLoading(false)
       })
 
       return()=>{
@@ -39,6 +41,7 @@ const auth =getAuth(app)
 
     const authInfo={
       user,
+      loading,
       createUser,
       signIn,
       logOut
