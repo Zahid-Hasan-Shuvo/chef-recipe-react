@@ -34,13 +34,13 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" name='password' required placeholder="password" className="input input-bordered" />
-          <p><Link to="/register" > <a href='#' className=" label-text-alt link link-hover">New to website? Register</a></Link></p>
+          <p><Link  > <a href='#' className=" label-text-alt link link-hover">forgot password?</a></Link></p>
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      
+      <p className='text-center'><Link to='/register' > <a href='#' className=" label-text-alt link link-hover">new to website? Register</a></Link></p>
     </div>
   </div>
 </div>
