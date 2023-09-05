@@ -1,10 +1,10 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 
 const Login = () => {
-
+  const [show, setShow]=useState(false)
   const navigate= useNavigate()
   const location =useLocation()
 
@@ -12,7 +12,9 @@ const Login = () => {
 
 
 const {signIn}=useContext(AuthContext)
- const handleLogin=(event)=>{
+ 
+ 
+  const handleLogin=(event)=>{
  event.preventDefault();
  const form= event.target;
  const email=form.email.value;
@@ -53,7 +55,11 @@ console.log(error);
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password' required placeholder="password" className="input input-bordered" />
+          <input type={show? "text" : "password"} name='password' required placeholder="password" className="input input-bordered" />
+          <p onClick={()=>setShow(!show)}><small>
+           {show? <span>hide password</span>: <span>Show password</span>}
+          </small></p>
+         
           <p><Link  > <a href='#' className=" label-text-alt link link-hover">forgot password?</a></Link></p>
         </div>
         <div className="form-control mt-6">
