@@ -6,6 +6,9 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from
 import app from "../firebase/firebase.config";
 
 const Login = () => {
+
+  const [error, setError] =useState('')
+  
   const auth = getAuth(app)
   const googleProvider =new GoogleAuthProvider()
   const githubProvider = new GithubAuthProvider()
@@ -50,11 +53,20 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+      
+       setError('')
+       
+       
         navigate(from, { replace: true });
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
+        setError(error.message)
+       
+        form.reset()
+
+        
       });
   };
 
@@ -128,9 +140,16 @@ const Login = () => {
               </a>
             </Link>
           </p>
+          
+          <small className="text-red-900 text-center">{error}</small>
+        
+       
         </div>
+        
       </div>
+      
     </div>
+   
   );
 };
 
