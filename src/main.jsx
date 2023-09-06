@@ -15,6 +15,8 @@ import AuthProviders from './providers/AuthProviders.jsx';
 import Recepi from './Cards/Recepi.jsx';
 import Blog from './components/Blog.jsx';
 import PrivateRoutes from './routes/PrivateRoutes.jsx';
+import ChiefSection from './components/ChiefSection.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -41,7 +43,13 @@ const router = createBrowserRouter([
       {
         path:"/blog",
         element:<Blog></Blog>
-      }
+      },
+      // {
+      //   path:"/categories/:id",
+      //   element:<SingleCard></SingleCard>,
+      //   loader: ({params}) => fetch(`http://localhost:3000/categories/${params.id}`)
+
+      // }
    
     ]
   },
